@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapNews — Approval Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">⚡</div>
+        <div>
+          <h1>SnapNews</h1>
+          <p class="subtitle">Content Approval Dashboard</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="status-badge" class="status-badge idle">
+          <span class="status-dot"></span>
+          <span id="status-text">Idle</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Controls -->
+    <section class="controls">
+      <div class="control-group">
+        <label for="category-select">News Category</label>
+        <select id="category-select">
+          <option value="technology">Technology</option>
+          <option value="business">Business</option>
+          <option value="science">Science</option>
+          <option value="health">Health</option>
+          <option value="sports">Sports</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="general">General</option>
+        </select>
+      </div>
+      <div class="control-actions">
+        <button id="btn-generate" class="btn btn-primary" onclick="generateContent()">
+          🚀 Generate Content
+        </button>
+        <button id="btn-render" class="btn btn-success" onclick="renderVideo()" disabled>
+          🎬 Approve & Render
+        </button>
+      </div>
+    </section>
+
+    <!-- Video Title -->
+    <section id="title-section" class="title-section" style="display: none;">
+      <label>Video Title</label>
+      <input type="text" id="video-title" class="title-input" />
+    </section>
+
+    <!-- Segments -->
+    <section id="segments-container" class="segments">
+      <div class="empty-state">
+        <p>📭 No content generated yet</p>
+        <p class="hint">Click "Generate Content" to fetch and process news stories</p>
+      </div>
+    </section>
+
+    <!-- Timeline preview -->
+    <section id="timeline-section" class="timeline-section" style="display: none;">
+      <h3>Timeline Preview</h3>
+      <div id="timeline" class="timeline"></div>
+    </section>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
